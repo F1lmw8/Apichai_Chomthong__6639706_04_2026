@@ -55,7 +55,7 @@ app.get('/', (_req, res) => {
 // health check API endpoint for grading
 app.get('/api/health', (_req, res) => {
   res.json({
-    status: 'ok',
+    ok: true,
     message: 'ระบบทำงานปกติ',
     timestamp: new Date().toISOString(),
   });
