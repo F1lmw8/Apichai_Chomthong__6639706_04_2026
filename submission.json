@@ -3,7 +3,7 @@
   "name": "Apichai Chomthong",
   "github_repo": "https://github.com/F1lmw8/Apichai_Chomthong__6639706_04_2026.git",
   "backend_base_url": "https://lab-4-supabase-fronted-backend.onrender.com",
-  "frontend_url": "https://YOUR_APP.netlify.app",
+  "frontend_url": "https://apichai-chomthong-66397-06-04-2026.netlify.app",
   "api": {
     "health": "https://lab-4-supabase-fronted-backend.onrender.com/",
     "tasks": "https://lab-4-supabase-fronted-backend.onrender.com/api/tasks"
