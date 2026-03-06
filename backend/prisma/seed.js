@@ -28,6 +28,10 @@ async function main() {
             title: 'hello kub hihi',
             description: 'This was added per user request',
         },
+        {
+            title: 'อภิไช โฉมทอง',
+            description: '6604101397',
+        },
     ];
 
     for (const t of initialTasks) {
