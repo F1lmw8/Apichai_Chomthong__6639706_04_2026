@@ -1,0 +1,11 @@
+{
+  "student_id": "6639706",
+  "name": "Apichai Chomthong",
+  "github_repo": "https://github.com/F1lmw8/Apichai_Chomthong__6639706_04_2026.git",
+  "backend_base_url": "https://YOUR_APP.onrender.com",
+  "frontend_url": "https://YOUR_APP.netlify.app",
+  "api": {
+    "health": "https://YOUR_APP.onrender.com/",
+    "tasks": "https://YOUR_APP.onrender.com/api/tasks"
+  }
+}
