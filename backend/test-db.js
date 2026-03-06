@@ -1,22 +1,29 @@
 const { Client } = require('pg');
-require('dotenv').config();
 
-console.log('Testing connection to:', process.env.DATABASE_URL);
+async function testConnection(url, name) {
+  const client = new Client({
+    connectionString: url,
+    ssl: { rejectUnauthorized: false }
+  });
+  try {
+    await client.connect();
+    console.log(`[SUCCESS] Connected to ${name}`);
+    await client.end();
+  } catch (err) {
+    console.log(`[FAILED] ${name}: ${err.message}`);
+  }
+}
 
-const client = new Client({
-    connectionString: process.env.DATABASE_URL,
-});
+async function run() {
+  const urls = [
+    { name: 'Direct DB Host (IPv4)', url: 'postgresql://postgres:NongFilmPewPew@db.yjuidfygprljzwvssvlw.supabase.co:5432/postgres' },
+    { name: 'Session Pooler', url: 'postgresql://postgres.yjuidfygprljzwvssvlw:NongFilmPewPew@aws-1-ap-south-1.pooler.supabase.com:5432/postgres' },
+    { name: 'Transaction Pooler', url: 'postgresql://postgres.yjuidfygprljzwvssvlw:NongFilmPewPew@aws-1-ap-south-1.pooler.supabase.com:6543/postgres' }
+  ];
 
-client.connect()
-    .then(() => {
-        console.log('✅ Connection Successful!');
-        return client.query('SELECT NOW()');
-    })
-    .then((res) => {
-        console.log('Select NOW() result:', res.rows[0]);
-        return client.end();
-    })
-    .catch((err) => {
-        console.error('❌ Connection Failed:', err);
-        process.exit(1);
-    });
+  for (const item of urls) {
+    await testConnection(item.url, item.name);
+  }
+}
+
+run();
