@@ -24,6 +24,10 @@ async function main() {
             title: 'Cloud Deployment',
             description: 'Deploy Backend to Render and Frontend to Netlify',
         },
+        {
+            title: 'hello kub hihi',
+            description: 'This was added per user request',
+        },
     ];
 
     for (const t of initialTasks) {
